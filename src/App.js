@@ -35,7 +35,7 @@ const App = () => {
             <div className={steps >= 3 ? "active" : ""}>3</div>
           </div>
 
-          <div className="message">{messages[steps - 1]}</div>
+          <StepMessage steps={steps}>{messages[steps - 1]}</StepMessage>
 
           <div className="buttons">
             <Button bgColor="#7950f2" color="#fff" onClick={handlePrevious}>
@@ -50,6 +50,14 @@ const App = () => {
     </>
   );
 };
+
+function StepMessage({ steps, children }) {
+  return (
+    <div className="message">
+      Step {steps}: {children}
+    </div>
+  );
+}
 
 function Button({ color, bgColor, onClick, children }) {
   return (
